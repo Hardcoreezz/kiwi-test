@@ -8,7 +8,8 @@ export default function Input({
   maxLength,
   className,
   type = 'text',
-  disabled
+  disabled,
+  onBlur
 }: {
   type?: string;
   className?: string,
@@ -17,6 +18,7 @@ export default function Input({
   maxLength?: number;
   disabled?: boolean;
   onChange(value: string): void;
+  onBlur?(): void;
 }): JSX.Element {
 
   return <Container className={className}>
@@ -26,11 +28,13 @@ export default function Input({
       maxLength={maxLength}
       placeholder={placeholder}
       value={value}
+      onBlur={onBlur}
       onChange={(e) => onChange(e.target.value)}
     />
   </Container>
 };
 const InputComponent = styled.input`
+  height: 32px;
 `;
 
 const Container = styled.div`

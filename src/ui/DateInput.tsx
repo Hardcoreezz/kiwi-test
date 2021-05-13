@@ -1,8 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import './DateInput.css';
 
 export default function DateInput({
   value,
@@ -19,6 +20,8 @@ export default function DateInput({
   return <Container className={className}>
     <DatePicker
       placeholderText={placeholder}
+      minDate={new Date()}
+      isClearable
       selected={value}
       onChange={onChange}/>
   </Container>

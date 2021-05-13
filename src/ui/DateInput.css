@@ -1,0 +1,6 @@
+.react-datepicker__input-container {
+    display: flex;
+}
+.react-datepicker__input-container > input {
+    height: 32px;
+}
