@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import PlaceList from '../PlaceList/PlaceList';
 import Input from '../../ui/Input';
