@@ -6,23 +6,28 @@ import "react-datepicker/dist/react-datepicker.css";
 import './DateInput.css';
 
 export default function DateInput({
-  value,
+  date,
   onChange,
   placeholder,
-  className
+  className,
+  minDate,
+  disabled
 }: {
   className?: string,
   placeholder?: string;
-  value: Date | null;
+  date: Date | null;
+  minDate?: Date | null;
+  disabled?: boolean;
   onChange(value: Date): void;
 }): JSX.Element {
 
   return <Container className={className}>
     <DatePicker
       placeholderText={placeholder}
-      minDate={new Date()}
+      minDate={minDate}
       isClearable
-      selected={value}
+      selected={date}
+      disabled={disabled}
       onChange={onChange}/>
   </Container>
 };

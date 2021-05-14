@@ -2,18 +2,19 @@ import React from 'react'
 import styled from 'styled-components';
 
 export default function PlaceList(props: {
-  values: any[];
-  onChange(value: any): void;
+  places: any[] | null;
+  for?: string;
+  onSelect(value: any): void;
 }): JSX.Element {
 
-  return <List>
-    {props.values.map((value, i) => {
-      return <Item key={`item_${i}`} onClick={() => props.onChange(value)}>{value.name}</Item>
+  return <List htmlFor={props.for}>
+    {props.places && props.places.map((place, i) => {
+      return <Item key={`item_${i}`} onClick={() => props.onSelect(place)}>{place.name}</Item>
     })}
   </List>;
 }
 
-const List = styled.ul`
+const List = styled.label`
   z-index: 10;
   display: flex;
   flex-direction: column;
