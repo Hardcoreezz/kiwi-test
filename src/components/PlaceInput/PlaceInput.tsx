@@ -27,11 +27,11 @@ export default function PlaceInput(props: {
     setValue(value);
   };
 
-  const fetchPlaces = useCallback(throttle(async (value: string) => {
+  const fetchPlaces = throttle(async (value: string) => {
     const locations = await Api.getLocations(value);
 
     setPlaces(locations);
-  }, 200), []);
+  }, 200);
 
   const onSelect = (place: any) => {
     props.onSelect(place);
